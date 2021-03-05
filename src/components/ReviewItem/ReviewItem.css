@@ -1,0 +1,9 @@
+.review-item{
+    border-bottom: 2px solid gray;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.review-item h4{
+    color: blue;
+    font-weight: 400;
+}

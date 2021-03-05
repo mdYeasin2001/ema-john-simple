@@ -5,7 +5,7 @@ const Cart = (props) => {
     const cart = props.cart;
     // const total = cart.reduce((total, prd) => total + prd.price, 0);
     let total = 0;
-    cart.map(pd => total = total + pd.price);
+    cart.map(pd => total = total + pd.price * pd.quantity);
     let shipping = 0;
     if(total > 35){
         shipping = 0;
@@ -26,7 +26,8 @@ const Cart = (props) => {
             <p>Product Price: {formatNumber(total)}</p>
             <p>Shipping Cost: {shipping}</p>
             <p>Tax + VAT : {formatNumber(tax)}</p>
-            <p>Total Price: {formatNumber(total) + shipping + formatNumber(tax)}</p>
+            <p>Total Price: {(formatNumber(total)  + shipping + formatNumber(tax)).toFixed(2)}</p>
+            {props.children}
         </div>
     );
 };

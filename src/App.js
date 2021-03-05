@@ -12,10 +12,11 @@ import {
 import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
   const [data, setData] = useState([]);
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     setData(GeneratedData);
   }, [])
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Shop/>
+          </Route>
+          <Route path="/product/:key">
+            <ProductDetails/>
           </Route>
           <Route path="*">
             <NotFound/>

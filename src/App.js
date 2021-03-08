@@ -21,10 +21,8 @@ function App() {
     setData(GeneratedData);
   }, [])
   return (
-    <div>
-      <Header />
-
       <Router>
+        <Header />
         <Switch>
           <Route path="/shop">
             <Shop />
@@ -46,7 +44,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
   );
 }
 

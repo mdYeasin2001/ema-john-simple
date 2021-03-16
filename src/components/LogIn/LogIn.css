@@ -1,0 +1,36 @@
+.App {
+    background-position: center;
+    background-size: cover;
+    height: 150vh;
+  }
+  .icon {
+    margin: 0rem 1rem;
+    font-size: 3rem;
+    transition: all .5s;
+    cursor: pointer;
+  }
+  .fb-icon{
+    color: #4267B2;
+  }
+  .google-icon{
+    color: #4285F4;
+  }
+  .github-icon{
+    color: #211F1F;
+  }
+  .icon:hover{
+    transform: scale(1.1);
+  }
+  form .form-btn, div .form-btn{
+    border: none;
+    border-radius: 2rem;
+    background: linear-gradient(to right,#0ECFE0, #6683EB, #E714FD);
+  }
+  form .form-btn:hover{
+    background: linear-gradient(to left,#0ECFE0, #6683EB, #E714FD);
+  }
+  .toggle-signUp-logIn{
+    cursor: pointer;
+  }
+  
+  

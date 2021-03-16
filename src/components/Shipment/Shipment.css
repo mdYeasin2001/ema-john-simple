@@ -1,0 +1,11 @@
+.error{
+    color: red;
+}
+.ship-form input{
+    display: block;
+    width: 300px;
+    margin: 20px 0px
+}
+.ship-form{
+    margin: 20px 200px
+}

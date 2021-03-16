@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
-import GeneratedData from './Data/data.json';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,14 +12,16 @@ import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import Shipment from './components/Shipment/Shipment';
+import LogIn from './components/LogIn/LogIn';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+export const UserContext = createContext();
 
 function App() {
-  const [data, setData] = useState([]);
-  // console.log(data);
-  useEffect(() => {
-    setData(GeneratedData);
-  }, [])
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Header />
         <Switch>
@@ -28,22 +29,29 @@ function App() {
             <Shop />
           </Route>
           <Route path="/review">
-            <Review/>
+            <Review />
           </Route>
-          <Route path="/manage">
-            <Inventory/>
+          <PrivateRoute path="/manage">
+            <Inventory />
+          </PrivateRoute>
+          <PrivateRoute path="/shipment">
+            <Shipment />
+          </PrivateRoute>
+          <Route path="/login">
+            <LogIn />
           </Route>
           <Route exact path="/">
-            <Shop/>
+            <Shop />
           </Route>
           <Route path="/product/:key">
-            <ProductDetails/>
+            <ProductDetails />
           </Route>
           <Route path="*">
-            <NotFound/>
+            <NotFound />
           </Route>
         </Switch>
       </Router>
+    </UserContext.Provider>
   );
 }
 
